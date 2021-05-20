@@ -1,3 +1,17 @@
+
+#=
+
+Comparing matrix multiplication time on CPU & GPU
+
+Using a 2080Ti & Ryzen 9 3900
+
+17.928 ms (2 allocations: 76.29 MiB)
+ 2.124 ms (56 allocations: 1.34 KiB)
+
+=#
+
+
+
 using CUDA
 using BenchmarkTools
 
@@ -24,20 +38,6 @@ function gpu(CC, AC, BC)
 end
 
 @btime CUDA.@sync gpu(CC, AC, BC)
-
-
-#=
-
-Comparing matrix multiplication time on CPU & GPU
-
-Using a 2080Ti & Ryzen 9 3900
-
-17.928 ms (2 allocations: 76.29 MiB)
- 2.124 ms (56 allocations: 1.34 KiB)
-
-=#
-
-
 
 
 
